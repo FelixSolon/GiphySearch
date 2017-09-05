@@ -1,3 +1,6 @@
+//So, as a framework, I copy-pasted and commented out the Readme. Feel free to ignore those bits.
+//ToDo: Figure out how to 
+
 /*Before you can make any part of our site work, you need to create an array of strings, 
 each one related to a topic that interests you. Save it to a variable called topics. */
 
@@ -52,7 +55,9 @@ $(document).ready(function(){
 
     $(document).on("click", generatedButton, function(){
         //Creates a URL to query the Giphy API
-      queryUrl = "http://api.giphy.com/v1/gifs/search?q=" + $(this).text() + "&api_key=44bb524d90374ef48090c7de2ce02d06&limit=10";
+        //This *should* let you use spaces in buttons and query properly, according to Stack Overflow.
+        var searchQuery = $(this).text().split(' ').join('+');
+        queryUrl = "http://api.giphy.com/v1/gifs/search?q=" + searchQuery + "&api_key=44bb524d90374ef48090c7de2ce02d06&limit=10";
 
         console.log($(this).text());
         console.log(queryUrl);
@@ -87,6 +92,8 @@ $(document).ready(function(){
 
 
             //Adds the newly created image to the top of the page.
+
+            //Under every gif, display its rating (PG, G, so on).
             $("#gifHolder").prepend("<p>Rated " + response.data[i].rating + "</p>")
             $("#gifHolder").prepend(giphyImage);
 
@@ -97,6 +104,7 @@ $(document).ready(function(){
 //When the user clicks one of the still GIPHY images, the gif should animate. 
 //If the user clicks the gif again, it should stop playing.
 
+//
 $(document).on("click", ".gif", function() {
     console.log("Working!");
       var state = $(this).attr("data-state");
@@ -111,8 +119,7 @@ $(document).on("click", ".gif", function() {
         state = $(this).attr("data-state", "still")
       }
     });
-
-//Under every gif, display its rating (PG, G, so on). 
+ 
 
 
 //This data is provided by the GIPHY API.

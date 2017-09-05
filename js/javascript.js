@@ -4,7 +4,7 @@ var topics = ["Space", "Elon Musk", "Saturn", "Jupiter", "Stars", "Space Ships"]
 //*holds up broom* SET ALL THE VARIABLES!
 var query = "";
 
-var queryUrl = "http://api.giphy.com/v1/gifs/search?api_key=44bb524d90374ef48090c7de2ce02d06&q=" + query;
+var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=44bb524d90374ef48090c7de2ce02d06&q=" + query;
 
 var generatedButton = ".giphyButtons";
 
@@ -61,7 +61,7 @@ $(document).ready(function(){
         //Actually makes the query URL
         //&limit=10 at the end to just pull 10 gifs
         //My API Key Do Not Steal (^_^)
-        queryUrl = "http://api.giphy.com/v1/gifs/search?q=" + searchQuery + "&api_key=44bb524d90374ef48090c7de2ce02d06&limit=10";
+        queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + searchQuery + "&api_key=44bb524d90374ef48090c7de2ce02d06&limit=10";
 
       //Actually queries it via AJAX, using the GET method because that's what we've more or less been told to use and it works.
         $.ajax({

@@ -62,7 +62,7 @@ $(document).ready(function(){
             method: "GET"
         }).done(function(response) {
         console.log(response);
-
+        console.log("Will this work? " + response.data[0].rating);
         //Look, it's not that I directly copied and pasted from the cat-button exercise. I just reused an old, functional, piece of code.
         //Creates a variable pulling from the JSON object to get the original URL
         for (var i = 0; i < response.data.length; i++) {
@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 
             //Adds the newly created image to the top of the page.
-            $("#gifHolder").prepend(response.data[i].images.rating)
+            $("#gifHolder").prepend("<p>Rated " + response.data[i].rating + "</p>")
             $("#gifHolder").prepend(giphyImage);
 
         }
